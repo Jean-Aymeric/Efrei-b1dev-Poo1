@@ -64,4 +64,29 @@ public class Person {
                 ", age=" + this.age +
                 '}';
     }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = this.formatName(lastName);
+    }
+
+    private String formatName(final String lastName) {
+        String temp = "";
+        if ((lastName != null) && (!lastName.isEmpty()) && (lastName.matches("[a-zA-Z]+"))) {
+            temp = lastName.substring(0, 1).toUpperCase()
+                    + lastName.substring(1);
+        }
+        return temp;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = this.formatName(firstName);
+    }
+
+    public void setAge(int age) {
+        this.age = Math.min(150, Math.max(0, age));
+    }
 }
