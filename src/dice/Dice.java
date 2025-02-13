@@ -3,14 +3,14 @@ package dice;
 import java.util.Objects;
 import java.util.Random;
 
-public class Dice {
+public abstract class Dice {
     private int nbSides;
 
     public Dice(int nbSides) {
         this.setNbSides(nbSides);
     }
 
-    public int roll(int nbRolls) {
+    public final int roll(int nbRolls) {
         int result = 0;
         for (int i = 0; i < nbRolls; i++) {
             result += this.roll();
@@ -18,34 +18,36 @@ public class Dice {
         return result;
     }
 
-    public int roll() {
+    public final int roll() {
         return new Random().nextInt(this.nbSides) + 1;
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return Objects.hashCode(this.nbSides);
     }
 
     @Override
-    public boolean equals(final Object o) {
+    public final boolean equals(final Object o) {
         if (o == null || this.getClass() != o.getClass()) return false;
         final Dice dice = (Dice) o;
         return this.nbSides == dice.nbSides;
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return "Dice{" +
                 "nbSides=" + getNbSides() +
                 '}';
     }
 
-    public int getNbSides() {
+    public final int getNbSides() {
         return this.nbSides;
     }
 
-    private void setNbSides(final int nbSides) {
+    private final void setNbSides(final int nbSides) {
         this.nbSides = Math.max(2, nbSides);
     }
+
+    public abstract void makeNoise();
 }

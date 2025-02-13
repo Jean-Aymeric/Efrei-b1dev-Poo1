@@ -1,7 +1,13 @@
 package dice;
 
 public class Coin extends Dice {
-    public Coin() {
+    private double value;
+
+    public Coin(double value) {
         super(2);
+    }
+
+    public double getValue() {
+        return this.value;
     }
 }
