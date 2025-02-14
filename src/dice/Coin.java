@@ -10,4 +10,9 @@ public class Coin extends Dice {
     public double getValue() {
         return this.value;
     }
+
+    @Override
+    public void makeNoise() {
+
+    }
 }
