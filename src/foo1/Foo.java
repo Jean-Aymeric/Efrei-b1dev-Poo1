@@ -1,11 +1,16 @@
 package foo1;
 
 public abstract class Foo {
+    public static final String madeBy = "JAD";
     private String aThing;
     private String anotherThing;
 
     public Foo(String aThing) {
         this.aThing = aThing;
+    }
+
+    public static int doStaticSomething() {
+        return 18;
     }
 
     public String getaThing() {
